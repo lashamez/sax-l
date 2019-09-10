@@ -29,6 +29,7 @@ public class ContextListener implements ServletContextListener {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         context.register(Config.class);
         context.refresh();
+
         manager = context.getBean(DaoManager.class);
 
         sce.getServletContext().setAttribute("manager", manager);

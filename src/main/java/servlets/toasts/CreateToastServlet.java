@@ -23,7 +23,6 @@ public class CreateToastServlet extends HttpServlet {
         Toast toast = new Toast(user.getId(), title, toastText, LocalDateTime.now());
         Promise promise = manager.insert(toast);
         request.getSession().setAttribute(promise.getLevel().getValue(), promise.getText());
-
         response.sendRedirect("/");
     }
 
