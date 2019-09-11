@@ -1,32 +1,31 @@
-package controller;
+package controller.admin;
 
-import dao.AdminMessageDao;
 import datatypes.messages.AdminMessage;
-import enums.DaoType;
-import manager.DaoManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import service.InboxService;
 
-import javax.servlet.ServletContext;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
+@DependsOn("inboxService")
 public class InboxController {
     private static final Logger logger = LogManager.getLogger(InboxController.class);
-    @Autowired
-    ServletContext context;
+    private InboxService inboxService;
+
+    public InboxController(InboxService inboxService) {
+        this.inboxService = inboxService;
+    }
+
     @GetMapping("/inbox")
     public String loadPage(Model model) {
-        DaoManager daoManager = (DaoManager) context.getAttribute("manager");
-        AdminMessageDao adminMessageDao = daoManager.getDao(DaoType.AdminMessage);
-        List<AdminMessage> notSeen = adminMessageDao.findAll().stream().filter(s->!s.isSeen()).collect(Collectors.toList());
-        List<AdminMessage> seen = adminMessageDao.findAll().stream().filter(AdminMessage::isSeen).collect(Collectors.toList());
+        List<AdminMessage> notSeen = inboxService.getNotSeenMessages();
+        List<AdminMessage> seen = inboxService.getSeenMessages();
 
         notSeen.sort(Comparator.comparing(AdminMessage::getTime).reversed());
         seen.sort(Comparator.comparing(AdminMessage::getTime).reversed());

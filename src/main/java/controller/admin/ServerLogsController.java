@@ -1,4 +1,4 @@
-package controller;
+package controller.admin;
 
 import datatypes.server.ServerLog;
 import enums.Level;
@@ -8,10 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import javax.servlet.http.HttpSession;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -51,4 +49,12 @@ public class ServerLogsController {
 
         return "server-logs";
     }
+    @GetMapping("/clearLogs")
+    public String clearLogs(HttpSession session) throws FileNotFoundException {
+        String fileName = "application.log";
+        new PrintWriter(fileName).close();
+        session.setAttribute("info", "Logs are deleted successfully");
+        return "server-logs";
+    }
+
 }

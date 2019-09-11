@@ -58,7 +58,7 @@
 
                 <c:if test="${sessionScope.user!=null && sessionScope.user.userType == UserType.Admin}">
                     <div style="float:right">
-                        <h:create entityName="User" selectFields="<%=createSelectField%>" actionServlet="CreateUserServlet"
+                        <h:create entityName="User" selectFields="<%=createSelectField%>" actionServlet="createUser"
                                   formFields="<%=formFields%>" formId="createUserForm"/>
                     </div>
                 </c:if>
@@ -120,13 +120,13 @@
                                         %>
                                         <!-- ***** delete user modal ***** -->
                                         <h:delete entityName="User"
-                                                  actionServlet="DeleteUserServlet"
+                                                  actionServlet="deleteUser"
                                                   hiddenParameterName="deleteUserId"
                                                   hiddenParameterValue="${currentUser.id}">
                                         </h:delete>
                                         <!-- ***** update user modal ***** -->
                                         <h:edit entityName="User"
-                                                actionServlet="EditUserServletFromAdmin"
+                                                actionServlet="editFromAdmin"
                                                 hiddenParameterName="hiddenId"
                                                 hiddenParameterValue="${currentUser.id}"
                                                 formFields="<%=editFormFields%>"

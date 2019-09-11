@@ -41,8 +41,11 @@
         <url-pattern>/inbox</url-pattern>
         <url-pattern>/contact</url-pattern>
         <url-pattern>/statistics</url-pattern>
-        <url-pattern>/activities</url-pattern>
+        <url-pattern>/createUser</url-pattern>
+        <url-pattern>/deleteUser</url-pattern>
+        <url-pattern>/login</url-pattern>
+        <url-pattern>/logout</url-pattern>
+        <url-pattern>/promote</url-pattern>
 
-        <url-pattern>*.html</url-pattern>
     </servlet-mapping>
 </web-app>

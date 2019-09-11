@@ -57,7 +57,7 @@
 
 <section class="mosh-aboutUs-area">
     <div class="login">
-        <form action="ForgotPasswordServlet" method="post" id="loginSection">
+        <form action="forgot" method="post" id="loginSection">
             <input type="text" placeholder="Username" minlength="4" required name="username">
             <br>
             <button type="submit" class="btn btn-outline-info btn-sm" style="display: block; margin: 0 auto;">

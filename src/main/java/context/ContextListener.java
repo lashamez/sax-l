@@ -1,6 +1,6 @@
 package context;
 
-import config.Config;
+import config.DaoConfig;
 import dao.AnnouncementDao;
 import dao.ToastDao;
 import datatypes.announcement.Announcement;
@@ -27,7 +27,7 @@ public class ContextListener implements ServletContextListener {
     private DaoManager manager;
     public void contextInitialized(ServletContextEvent sce) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-        context.register(Config.class);
+        context.register(DaoConfig.class);
         context.refresh();
 
         manager = context.getBean(DaoManager.class);

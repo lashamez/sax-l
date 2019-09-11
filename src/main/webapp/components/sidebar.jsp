@@ -46,7 +46,7 @@
             </c:when>
             <c:otherwise>
                 <li>
-                    <a href="LogoutServlet">
+                    <a href="logout">
                         <i class="fas fa-sign-out-alt"></i> Sign out
                     </a>
                 </li>

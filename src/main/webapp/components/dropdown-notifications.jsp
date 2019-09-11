@@ -37,7 +37,7 @@
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item">
-                <a class="mini ui button negative" href="LogoutServlet">
+                <a class="mini ui button negative" href="logout">
                     <i class="fas fa-sign-out-alt"></i> Sign out
                 </a>
             </a>

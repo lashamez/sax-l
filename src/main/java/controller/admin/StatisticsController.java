@@ -1,4 +1,4 @@
-package controller;
+package controller.admin;
 
 import dao.AnnouncementDao;
 import dao.UserAchievementDao;

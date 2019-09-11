@@ -12,8 +12,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 @Configuration
-public class Config implements WebMvcConfigurer {
-    private static final Logger logger = LogManager.getLogger(Config.class);
+public class DaoConfig implements WebMvcConfigurer {
+    private static final Logger logger = LogManager.getLogger(DaoConfig.class);
 
     @Bean
     public DaoManager daoManager() {
