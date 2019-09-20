@@ -1,0 +1,21 @@
+{
+  "addons": [
+    "cleardb"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/java"
+    }
+  ],
+  "env": {
+    "CLEARDB_DATABASE_URL": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "name": "sax-l",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
